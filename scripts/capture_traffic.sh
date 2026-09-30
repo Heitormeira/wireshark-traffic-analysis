@@ -54,7 +54,8 @@ start_capture() {
     echo -e "${YELLOW}Filtro: $filter${NC}"
     echo -e "${YELLOW}Arquivo: $output_file${NC}"
     echo -e "${YELLOW}Pressione Ctrl+C para parar${NC}\n"
-    
+
+    mkdir -p captures
     sudo tcpdump -i $INTERFACE $filter -w "captures/$output_file"
     
     if [ $? -eq 0 ]; then
